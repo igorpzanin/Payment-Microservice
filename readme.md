@@ -49,13 +49,11 @@ Execute este script em um cliente SQL conectado ao container do PostgreSQL.
 
 ## Comandos Úteis
 Parar os containers:
-
-´´´bash
+```bash
 docker-compose down
-´´´
-
+```
 Reconstruir os containers:
-
-´´´bash
+```bash
 docker-compose up --build
-´´´
+```
+
