@@ -1,0 +1,27 @@
+version: '3'
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: ecommerce
+    ports:
+      - "5432:5432"
+
+  rabbitmq:
+    image: rabbitmq:management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  servico-pagamento:
+    build: ./servico-pagamento
+    depends_on:
+      - postgres
+      - rabbitmq
+
+  servico-notificacao:
+    build: ./servico-notificacao
+    depends_on:
+      - rabbitmq
